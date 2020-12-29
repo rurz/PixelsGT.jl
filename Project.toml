@@ -1,0 +1,4 @@
+name = "PixelsGT"
+uuid = "01ceb027-78a8-4f29-bf6e-57a923127b8d"
+authors = ["Alejandro R. Urzúa <arurzp@gmail.com>"]
+version = "0.1.0"
