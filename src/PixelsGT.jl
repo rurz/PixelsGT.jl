@@ -27,6 +27,6 @@ Kfunc(n,q,j) = A(n, j) * sqrt(B(n, j) * B(j + q, j)) * Kpoly(n, j + q, j)
 # energy levels n, and rows are position index q
 
 Kmat(j::Integer) = reshape(
-                    [Kfunc(l, m, j) for m in -j:j
-                                        for l in 0:2 * j],
-                                            (2 * j + 1, 2 * j + 1))
+                        [Kfunc(l, m, j) for m in -j:j
+                                            for l in 0:2 * j],
+                                                (2 * j + 1, 2 * j + 1))
