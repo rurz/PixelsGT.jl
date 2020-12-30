@@ -1,4 +1,4 @@
-# Pixels.jl - A package to transform pixelated screens
+# PixelsGT.jl - A package to transform pixelated screens
 
 #### Alejandro R. Urzúa
 
@@ -6,7 +6,7 @@ ____
 
 (v. 0.1.0)
 
-At this begins, the package aims to be a collection of scripts to do unitary, ergo revertible, transformations on 1D and 2D arrays. We call this arrays _pixelated screens_. The scripts here presented are based on a bunch of fundamental research papers about analysis, synthesis and transformations of these pixelated screens. 
+At this begins, the package aims to be a collection of scripts to do unitary, ergo revertible, transformations on 1D and 2D arrays. We call this arrays _pixelated screens_. The scripts here presented are based on a bunch of fundamental research papers about analysis, synthesis and transformations of these pixelated screens.
 
 ###### Discrete and finite signals encoding
 
@@ -28,8 +28,8 @@ ____
 
 [2] Atakishiyev, N., & Wolf, K. (1993). Approximation on a finite set of points through kravchuk functions. https://rmf.smf.mx/ojs/rmf/article/view/2409/2377
 
-[3] Wolf, K. B., & Alieva, T. (2008). Rotation and gyration of finite 
-two-dimensional modes. Journal of the Optical Society of America A, 
+[3] Wolf, K. B., & Alieva, T. (2008). Rotation and gyration of finite
+two-dimensional modes. Journal of the Optical Society of America A,
 25(2), 365. https://doi.org/10.1364/josaa.25.000365
 
 [4] Urzúa, A. R., & Wolf, K. B. (2016). Unitary rotation and gyration of
