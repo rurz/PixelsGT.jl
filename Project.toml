@@ -2,3 +2,6 @@ name = "PixelsGT"
 uuid = "01ceb027-78a8-4f29-bf6e-57a923127b8d"
 authors = ["Alejandro R. Urzúa <arurzp@gmail.com>"]
 version = "0.1.0"
+
+[deps]
+HypergeometricFunctions = "34004b35-14d8-5ef3-9330-4cdb6864b03a"
