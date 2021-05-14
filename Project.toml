@@ -1,0 +1,8 @@
+name = "PixelsGT"
+uuid = "b317fbfa-b46a-11eb-3512-4f4d22d99383"
+authors = ["Alejandro R. Urzúa <arurz@inaoep.mx>"]
+version = "0.1.0"
+
+[deps]
+HypergeometricFunctions = "34004b35-14d8-5ef3-9330-4cdb6864b03a"
+SpecialFunctions = "276daf66-3868-5448-9aa4-cd146d93841b"
