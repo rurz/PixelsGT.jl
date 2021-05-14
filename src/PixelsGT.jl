@@ -1,3 +1,3 @@
-module PixelsGT.jl
+module PixelsGT
     include("Krav.jl")
 end

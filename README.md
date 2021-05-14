@@ -1,1 +1,1 @@
-PixelsGT.jl
+# PixelsGT.jl - A package to unitarily transform pixellated screens
