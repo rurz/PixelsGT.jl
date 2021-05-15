@@ -5,4 +5,5 @@ version = "0.1.0"
 
 [deps]
 HypergeometricFunctions = "34004b35-14d8-5ef3-9330-4cdb6864b03a"
+Images = "916415d5-f1e6-5110-898d-aaa5f9f070e0"
 SpecialFunctions = "276daf66-3868-5448-9aa4-cd146d93841b"
