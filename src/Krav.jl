@@ -6,7 +6,7 @@ using SpecialFunctions
 export kp, binom, Φ, Φ2
 
 "`kp(n, q, N)` gives the symmetric Kravchuk polynomia for n ∈ [0, N] and q ∈ [-N,N]"
-kp(n, q, N) = HypergeometricFunctions._₂F₁general2(-BigFloat(n), -q, -N, 2)
+kp(n, q, N) = HypergeometricFunctions._₂F₁general2(-BigFloat(n), -BigFloat(q), -N, 2)
 
 A(n, j) = ((-1.0)^n) / (2.0^j)
 
@@ -29,3 +29,6 @@ end
 
 "`Φ2(n₁, n₂, q₁, q₂, j)` evaluates the two-dimensional Kravchuk functions over the set of lineal independent eigenmodes"
 Φ2(n₁, n₂, q₁, q₂, j) = Φ(n₁, q₁, j) * Φ(n₂, q₂, j)
+
+###################################################
+# Construction of the Kravchuk functions as recursion

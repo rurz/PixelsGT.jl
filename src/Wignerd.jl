@@ -1,5 +1,7 @@
 "This scripts computes the Wigner little-d functions for the rotations"
 
+using StaticArrays
+
 export dd, du
 
 const β = π/2
@@ -18,7 +20,7 @@ coeff₄(n, k) = √((k - 1) * (n + 2 - k) / (k * (n + 1 - k)))
 
 "`dd(n, j)` is a function who depends on the energy lever _n_ and gives an _n × n_ little-d coefficient matrix. n ∈ [0, 2j] for j ≥ 0. Warning: j is tested to be accurate below 28, that is, matrices of 56 points are safe to be considered as accurate."
 function dd(n, j)
-    vdd = zeros((2 * j + 1, 2 * j + 1))
+    vdd = zeros(Float64, (2 * j + 1, 2 * j + 1))
     vdd[1, 1] = cos(β/2)^n
     vdd[2, 1] = √n * (cos(β) - 1) * csc(β) * vdd[1, 1]
     for k in 2:n
@@ -48,7 +50,7 @@ coeff₈(n, k, j) = √(((k - 1) * (4 * j + 2 - k - n)) / (k * (4 * j + 1 - k - 
 
 "`du(n, j)` is a function who depends on the energy lever _n_ and gives an _n × n_ little-d coefficient matrix. n ∈ [2j, 4j] for j ≥ 0. This modes are counted in reverse, n = 4j is the lowest, and n = 2j is the highest. Warning: j is tested to be accurate below 28, that is, matrices of 56 points are safe to be considered as accurate."
 function du(n, j)
-    vdu = zeros((2 * j + 1, 2 * j + 1))
+    vdu = zeros(Float64, (2 * j + 1, 2 * j + 1))
     vdu[1, 1] = cos(β/2)^(4 * j - n)
     vdu[2, 1] = √(4 * j - n) * (cos(β) - 1) * csc(β) * vdu[1, 1]
     for k in 2:(4 * j - n)
