@@ -23,7 +23,7 @@ function Φ(n, q, j)
     if 0 ≤ n ≤ j
         return ϕ(n, q, j)
     elseif j < n ≤ 2 * j
-        return (-1.0)^q * ϕ(2 * j - n, q, j)
+        return Complex(-1.0)^q * ϕ(2 * j - n, q, j)
     end
 end
 
