@@ -23,7 +23,7 @@ function Φ(n, q, j)
     if 0 ≤ n ≤ j
         return ϕ(n, q, j)
     elseif j < n ≤ 2 * j
-        return Complex(-1.0)^q * ϕ(2 * j - n, q, j)
+        return real(Complex(-1.0)^(q + j) * ϕ(2 * j - n, q, j))
     end
 end
 
@@ -31,4 +31,3 @@ end
 Φ2(n₁, n₂, q₁, q₂, j) = Φ(n₁, q₁, j) * Φ(n₂, q₂, j)
 
 ###################################################
-# Construction of the Kravchuk functions as recursion
