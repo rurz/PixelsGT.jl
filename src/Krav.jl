@@ -19,11 +19,19 @@ B(n, q, j) = √(binom(2 * j, n) * binom(2 * j, j + q))
 ϕ(n, q, j) = Float64(A(n, j) * B(n, q, j) * kp(n, j + q, 2 * j))
 
 "`Φ(n, q, j)` gives the Kravchuk function within the ranges n ∈ [0, 2j], q ∈ [-j, j]. It is tested to give correct values for j ≤ 128."
+# function Φ(n, q, j)
+#     if 0 ≤ n ≤ j
+#         return ϕ(n, q, j)
+#     elseif j < n ≤ 2 * j
+#         return real(Complex(-1.0)^(q) * ϕ(2 * j - n, q, j))
+#     end
+# end
+
 function Φ(n, q, j)
-    if 0 ≤ n ≤ j
+    if n == 2 * j && q == j
+        return -ϕ(0, j, j)
+    else
         return ϕ(n, q, j)
-    elseif j < n ≤ 2 * j
-        return real(Complex(-1.0)^(q + j) * ϕ(2 * j - n, q, j))
     end
 end
 
