@@ -27,14 +27,6 @@ function Φ(n, q, j)
      end
 end
 
-#function Φ(n, q, j)
-#    if n == 2 * j && q == j
-#        return -ϕ(0, j, j)
-#    else
-#        return ϕ(n, q, j)
-#    end
-#end
-
 "`Φ2(n₁, n₂, q₁, q₂, j)` evaluates the two-dimensional Kravchuk functions over the set of lineal independent eigenmodes"
 Φ2(n₁, n₂, q₁, q₂, j) = Φ(n₁, q₁, j) * Φ(n₂, q₂, j)
 
