@@ -26,28 +26,3 @@ function Fqθ(θ, q₁, q₂, j, imgdat)
     ru = sum([conj(LK(q₁, q₂, n, m, j)) * fnmθ(θ, n, m, j, imgdat) for n in (2*j + 1):4*j for m in -(4 * j - n):2:(4 * j - n)])
     return rd + ru
 end
-
-################################################
-# Trying to optimize the code, it's a cum!
-
-function rds(θ, q₁, q₂, j, imgdat)
-    rdsv = zeros(ComplexF64, 2 * j + 1)
-    for n in 0:2*j
-        for m in -n:2:n
-            rdsv[n + 1] = conj(LK(q₁, q₂, n, m, j)) * fnmθ(θ, n, m, j, imgdat)
-        end
-    end
-    return sum(rdsv)
-end
-
-function rus(θ, q₁, q₂, j, imgdat)
-    rusv = zeros(ComplexF64, 2 * j + 1)
-    for n in (2*j + 1):4*j
-        for m in -(4 * j - n):2:(4 * j - n)
-            rusv[n - (2*j)] = conj(LK(q₁, q₂, n, m, j)) * fnmθ(θ, n, m, j, imgdat)
-        end
-    end
-    return sum(rusv)
-end
-
-Fqθ2(θ, q₁, q₂, j, imgdat) = rds(θ, q₁, q₂, j, imgdat) + rus(θ, q₁, q₂, j, imgdat)
