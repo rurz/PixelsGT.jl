@@ -1,4 +1,4 @@
-"This script implement a threads version  for the Laguerre-Kravchuk function, so we can distribute the calculation over a multithreads processor"
+"This script implement a threads version for the Laguerre-Kravchuk function, so we can distribute the calculation over a multithreaded processor"
 
 using PixelsGT # Call the parent module
 
@@ -12,7 +12,7 @@ ru(Q₁, Q₂, q₁, q₂, n, m, θ, j) = real(conj(LKu(Q₁, Q₂, n, m, j)) * 
 
 export RdM, RuM
 
-"`RdM(θ, j)` gives the twodimensional array of lower modes at angle θ for a j-diomensional representation"
+"`RdM(θ, j)` gives the twodimensional array of lower modes at angle θ for a j-dimensional representation"
 function RdM(θ, j)
     m = zeros((Integer(2 * j + 1), Integer(2 * j + 1), Integer(2 * j + 1), Integer(2 * j + 1)))
     Threads.@threads  for Q₁ in 1:Integer(2*j+1)
@@ -27,7 +27,7 @@ function RdM(θ, j)
     return m
 end
 
-"`RuM(θ, j)` gives the twodimensional array of lower modes at angle θ for a j-diomensional representation"
+"`RuM(θ, j)` gives the twodimensional array of lower modes at angle θ for a j-dimensional representation"
 function RuM(θ, j)
     m = zeros((Integer(2 * j + 1), Integer(2 * j + 1), Integer(2 * j + 1), Integer(2 * j + 1)))
     Threads.@threads  for Q₁ in 1:Integer(2*j+1)

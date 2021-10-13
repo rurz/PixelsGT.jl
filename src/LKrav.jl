@@ -1,8 +1,10 @@
-using PixelsGT
+"This script computes the Laguerre-Kravchuk functions, who are the Kravchuk functions on a angular momentum space."
+
+using PixelsGT # Call the parent module
 
 export  ϕd, ϕu, LKd, LKu, LK
 
-"`Φd(q₁, q₂, n, m, j)` shows the rotations of the Kravchuk function modes at (n, |m| ≤ n) for n ∈ [0, 2j]. It needs to be evaluted at (q₁, q₂) ∈ [0, 2j + 1]."
+"`Φd(q₁, q₂, n, m, j)` rotates π/2 the Kravchuk function modes at (n, |m| ≤ n) for n ∈ [0, 2j]. It needs to be evaluted at (q₁, q₂) ∈ [0, 2j + 1]."
 function Φd(q₁, q₂, n, m, j)
     v₀ = zeros(Integer(2 * j + 1)) # (Sep 9, 2021) Added Integer() to meet the half-spin feature in j
     for n₁ in 0:n
@@ -11,7 +13,7 @@ function Φd(q₁, q₂, n, m, j)
     return sum(v₀)
 end
 
-"`Φu(q₁, q₂, n, m, j)` shows the rotations of the Kravchuk function modes at (n, |m| ≤ 4j - n) for n ∈ [4j, 2j]. It needs to be evaluted at (q₁, q₂) ∈ [0, 2j + 1]."
+"`Φu(q₁, q₂, n, m, j)` rotates π/2 the Kravchuk function modes at (n, |m| ≤ 4j - n) for n ∈ [4j, 2j]. It needs to be evaluted at (q₁, q₂) ∈ [0, 2j + 1]."
 function Φu(q₁, q₂, n, m, j)
     v₁ = zeros(Integer(2 * j + 1))
     for n₁ in 0:Integer((4* j - n))
@@ -22,7 +24,7 @@ end
 
 "Laguerre-Kravchuk modes functions are the core of the rotation of images, they encodes the original position information in a mode-angular momentum space, ready to apply an angle phase who rotates the image"
 
-"`LKd(q₁, q₂, n, m, j)` shows the Laguerre-Kravchuk modes at (n, |m| ≤ n) for n ∈ [0, 2j]. It needs to be evaluted at (q₁, q₂) ∈ [0, 2j + 1]."
+"`LKd(q₁, q₂, n, m, j)` gives Laguerre-Kravchuk modes at (n, |m| ≤ n) for n ∈ [0, 2j]. It needs to be evaluted at (q₁, q₂) ∈ [0, 2j + 1]."
 function LKd(q₁, q₂, n, m, j)
     vlkd = zeros(ComplexF64, Integer(2 * j + 1))
     for n₁ in 0:n
@@ -31,7 +33,7 @@ function LKd(q₁, q₂, n, m, j)
     return (-1.0)^((0.5) * (abs(m) - m)) * sum(vlkd)
 end
 
-"`LKu(q₁, q₂, n, m, j)` shows the Laguerre-Kravchuk modes at (n, |m| ≤ 4j - n) for n ∈ [4j, 2j]. It needs to be evaluted at (q₁, q₂) ∈ [0, 2j + 1]."
+"`LKu(q₁, q₂, n, m, j)` gives the Laguerre-Kravchuk modes at (n, |m| ≤ 4j - n) for n ∈ [4j, 2j]. It needs to be evaluted at (q₁, q₂) ∈ [0, 2j + 1]."
 function LKu(q₁, q₂, n, m, j)
     vlku = zeros(ComplexF64, Integer(2 * j + 1))
     for n₁ in 0:Integer(4* j - n)

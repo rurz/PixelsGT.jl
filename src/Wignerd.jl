@@ -1,10 +1,10 @@
-"This scripts computes the Wigner little-d functions for the rotations"
+"This script computes the Wigner little-d functions as three-terms recursions. They are divided in two set depending on the energy level addressed. Lower-level are in n ∈ [0, 2j], and upper-level are in n ∈ [2j, 4j]."
 
 using StaticArrays
 
 export dd, du
 
-const β = π/2
+const β = π/2 
 
 "Lower triangle of modes. The counters are bounded as n ≤ 2j, and |m| ≤ n in steps of 2."
 
@@ -18,7 +18,7 @@ coeff₃(n, k, l) = (2 * (1 - k + n/2 + (l - n/2 - 1) * cos(β)) * csc(β)) / �
 
 coeff₄(n, k) = √((k - 1) * (n + 2 - k) / (k * (n + 1 - k)))
 
-"`dd(n, j)` is a function who depends on the energy lever _n_ and gives an _n × n_ little-d coefficient matrix. n ∈ [0, 2j] for j ≥ 0. Warning: j is tested to be accurate below 28, that is, matrices of 56 points are safe to be considered as accurate."
+"`dd(n, j)` is a function who depends on the energy level _n_ and gives an _n × n_ little-d coefficient matrix. n ∈ [0, 2j] for j ≥ 0. Warning: j is tested to be accurate below 28, that is, matrices of 56 points are safe to be considered as accurate."
 function dd(n, j)
     vdd = zeros(Float64, (Integer(2 * j + 1), Integer(2 * j + 1))) # Added Integer() to meet the half-spin feature in j
     vdd[1, 1] = cos(β/2)^n
@@ -48,7 +48,7 @@ coeff₇(n, k, l, j) = (2 * (1 - k + (1/2) * (4 * j - n) + (l - 1 + (1/2) * (n -
 
 coeff₈(n, k, j) = √(((k - 1) * (4 * j + 2 - k - n)) / (k * (4 * j + 1 - k - n)))
 
-"`du(n, j)` is a function who depends on the energy lever _n_ and gives an _n × n_ little-d coefficient matrix. n ∈ [2j, 4j] for j ≥ 0. This modes are counted in reverse, n = 4j is the lowest, and n = 2j is the highest. Warning: j is tested to be accurate below 28, that is, matrices of 56 points are safe to be considered as accurate."
+"`du(n, j)` is a function who depends on the energy level _n_ and gives an _n × n_ little-d coefficient matrix. n ∈ [2j, 4j] for j ≥ 0. This modes are counted in reverse, n = 4j is the lowest, and n = 2j is the highest. Warning: j is tested to be accurate below 28, that is, matrices of 56 points are safe to be considered as accurate."
 function du(n, j)
     vdu = zeros(Float64, (Integer(2 * j + 1), Integer(2 * j + 1)))
     vdu[1, 1] = cos(β/2)^(4 * j - n)
