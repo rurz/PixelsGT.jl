@@ -6,7 +6,7 @@ using PixelsGT # Call the parent module
 
 export fnm, fnmθ, Fqθ
 
-"`fnm(n, m, j, imgdat)` encodes a two-dimensional position field in a modes space labeled by mode _n_ and counter _m_, who ranges are n ∈ [0, 2j] and |m|₂ ≤ n. 'imgdat' is a position field, that is a N×N matrix, for N = 2j."
+"`fnm(n, m, j, imgdat)` encodes a two-dimensional position field in a modes space labeled by mode _n_ and counter _m_, who ranges are n ∈ [0, 2j] and |m| ≤ n. 'imgdat' is a position field, that is a N×N matrix, for N = 2j."
 function fnm(n, m, j, imgdat)
     vnm = zeros(ComplexF64, (2 * j + 1, 2 * j + 1))
     for q₁ in -j:j
